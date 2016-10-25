@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		783E36A41DBFABC300FC8D4D /* rpSaver2View.h in Headers */ = {isa = PBXBuildFile; fileRef = 783E36A31DBFABC300FC8D4D /* rpSaver2View.h */; };
+		783E36A61DBFABC300FC8D4D /* rpSaver2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 783E36A51DBFABC300FC8D4D /* rpSaver2View.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		783E36A01DBFABC300FC8D4D /* rpSaver2.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rpSaver2.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		783E36A31DBFABC300FC8D4D /* rpSaver2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rpSaver2View.h; sourceTree = "<group>"; };
+		783E36A51DBFABC300FC8D4D /* rpSaver2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rpSaver2View.m; sourceTree = "<group>"; };
+		783E36A71DBFABC300FC8D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		783E369C1DBFABC300FC8D4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		783E36961DBFABC300FC8D4D = {
+			isa = PBXGroup;
+			children = (
+				783E36A21DBFABC300FC8D4D /* rpSaver2 */,
+				783E36A11DBFABC300FC8D4D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		783E36A11DBFABC300FC8D4D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				783E36A01DBFABC300FC8D4D /* rpSaver2.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		783E36A21DBFABC300FC8D4D /* rpSaver2 */ = {
+			isa = PBXGroup;
+			children = (
+				783E36A31DBFABC300FC8D4D /* rpSaver2View.h */,
+				783E36A51DBFABC300FC8D4D /* rpSaver2View.m */,
+				783E36A71DBFABC300FC8D4D /* Info.plist */,
+			);
+			path = rpSaver2;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		783E369D1DBFABC300FC8D4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				783E36A41DBFABC300FC8D4D /* rpSaver2View.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		783E369F1DBFABC300FC8D4D /* rpSaver2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 783E36AA1DBFABC300FC8D4D /* Build configuration list for PBXNativeTarget "rpSaver2" */;
+			buildPhases = (
+				783E369B1DBFABC300FC8D4D /* Sources */,
+				783E369C1DBFABC300FC8D4D /* Frameworks */,
+				783E369D1DBFABC300FC8D4D /* Headers */,
+				783E369E1DBFABC300FC8D4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rpSaver2;
+			productName = rpSaver2;
+			productReference = 783E36A01DBFABC300FC8D4D /* rpSaver2.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		783E36971DBFABC300FC8D4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Nix, Robert P.";
+				TargetAttributes = {
+					783E369F1DBFABC300FC8D4D = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = SJZ3P6UM2K;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 783E369A1DBFABC300FC8D4D /* Build configuration list for PBXProject "rpSaver2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 783E36961DBFABC300FC8D4D;
+			productRefGroup = 783E36A11DBFABC300FC8D4D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				783E369F1DBFABC300FC8D4D /* rpSaver2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		783E369E1DBFABC300FC8D4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		783E369B1DBFABC300FC8D4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				783E36A61DBFABC300FC8D4D /* rpSaver2View.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		783E36A81DBFABC300FC8D4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		783E36A91DBFABC300FC8D4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		783E36AB1DBFABC300FC8D4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SJZ3P6UM2K;
+				INFOPLIST_FILE = rpSaver2/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_BUNDLE_IDENTIFIER = net.rpural.rpSaver2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		783E36AC1DBFABC300FC8D4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = SJZ3P6UM2K;
+				INFOPLIST_FILE = rpSaver2/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_BUNDLE_IDENTIFIER = net.rpural.rpSaver2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		783E369A1DBFABC300FC8D4D /* Build configuration list for PBXProject "rpSaver2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				783E36A81DBFABC300FC8D4D /* Debug */,
+				783E36A91DBFABC300FC8D4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		783E36AA1DBFABC300FC8D4D /* Build configuration list for PBXNativeTarget "rpSaver2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				783E36AB1DBFABC300FC8D4D /* Debug */,
+				783E36AC1DBFABC300FC8D4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 783E36971DBFABC300FC8D4D /* Project object */;
+}
