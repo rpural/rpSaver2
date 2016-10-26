@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		783E36A41DBFABC300FC8D4D /* rpSaver2View.h in Headers */ = {isa = PBXBuildFile; fileRef = 783E36A31DBFABC300FC8D4D /* rpSaver2View.h */; };
 		783E36A61DBFABC300FC8D4D /* rpSaver2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 783E36A51DBFABC300FC8D4D /* rpSaver2View.m */; };
+		783E36AE1DBFAF3400FC8D4D /* ConfigureSheet.nib in Resources */ = {isa = PBXBuildFile; fileRef = 783E36AD1DBFAF3400FC8D4D /* ConfigureSheet.nib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		783E36A31DBFABC300FC8D4D /* rpSaver2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rpSaver2View.h; sourceTree = "<group>"; };
 		783E36A51DBFABC300FC8D4D /* rpSaver2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rpSaver2View.m; sourceTree = "<group>"; };
 		783E36A71DBFABC300FC8D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		783E36AD1DBFAF3400FC8D4D /* ConfigureSheet.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ConfigureSheet.nib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				783E36A31DBFABC300FC8D4D /* rpSaver2View.h */,
 				783E36A51DBFABC300FC8D4D /* rpSaver2View.m */,
 				783E36A71DBFABC300FC8D4D /* Info.plist */,
+				783E36AD1DBFAF3400FC8D4D /* ConfigureSheet.nib */,
 			);
 			path = rpSaver2;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783E36AE1DBFAF3400FC8D4D /* ConfigureSheet.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +236,7 @@
 		783E36AB1DBFABC300FC8D4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = SJZ3P6UM2K;
 				INFOPLIST_FILE = rpSaver2/Info.plist;
@@ -245,6 +250,7 @@
 		783E36AC1DBFABC300FC8D4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = SJZ3P6UM2K;
 				INFOPLIST_FILE = rpSaver2/Info.plist;

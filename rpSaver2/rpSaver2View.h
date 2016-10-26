@@ -8,6 +8,10 @@
 
 #import <ScreenSaver/ScreenSaver.h>
 
-@interface rpSaver2View : ScreenSaverView
+@interface rpSaver2View : ScreenSaverView {
+    IBOutlet id configSheet;
+    IBOutlet id drawFilledShapesOption;
+    IBOutlet id drawOutlinedShapesOption;
+    IBOutlet id drawBothOption; }
 
 @end
