@@ -16,7 +16,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
 {
     self = [super initWithFrame:frame isPreview:isPreview];
     if (self) {
-        [self setAnimationTimeInterval:1/30.0];
+        [self setAnimationTimeInterval:1/5.0];
         
         ScreenSaverDefaults *defaults;
         defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
@@ -69,7 +69,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     rect.origin = SSRandomPointForSizeWithinRect( rect.size, [self bounds] );
     
     // Decide what kind of shape to draw
-    shapeType = SSRandomIntBetween( 0, 4 );
+    shapeType = SSRandomIntBetween( 0, 5 );
     switch (shapeType) {
         case 0:
             // rect
@@ -112,6 +112,19 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
             [path closePath];
             break;
+        case 5:
+            // odd
+            path = [NSBezierPath bezierPath];
+            [path moveToPoint:rect.origin];
+            [path curveToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))
+                 controlPoint1:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))
+                 controlPoint2:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
+            [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                          rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
+            [path closePath];
         default:
             break;
     }
