@@ -52,6 +52,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     
     NSBezierPath *path;
     NSRect rect;
+    NSPoint pointA, pointB, pointC;
     NSSize size;
     NSColor *color;
     float red, green, blue, alpha;
@@ -69,7 +70,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     rect.origin = SSRandomPointForSizeWithinRect( rect.size, [self bounds] );
     
     // Decide what kind of shape to draw
-    shapeType = SSRandomIntBetween( 0, 5 );
+    shapeType = SSRandomIntBetween( 0, 6 );
     switch (shapeType) {
         case 0:
             // rect
@@ -125,6 +126,46 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
             [path closePath];
+            break;
+        case 6:
+            path = [NSBezierPath bezierPath];
+            [path moveToPoint:rect.origin];
+            
+            pointA = NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 rect.origin.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
+
+
+            [path curveToPoint:pointA
+                 controlPoint1:pointB
+                 controlPoint2:pointC];
+            
+            pointA = NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 rect.origin.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
+
+            [path curveToPoint:pointA
+                 controlPoint1:pointB
+                 controlPoint2:pointC];
+            
+            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
+
+            [path curveToPoint:rect.origin
+                 controlPoint1:pointB
+                 controlPoint2:pointC];
+            
+            [path closePath];
+            break;
+
         default:
             break;
     }
