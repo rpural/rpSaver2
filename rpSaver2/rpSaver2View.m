@@ -52,11 +52,15 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     
     NSBezierPath *path;
     NSRect rect;
-    NSPoint pointA, pointB, pointC;
+    NSPoint pointA, pointB, pointC, pointD;
     NSSize size;
     NSColor *color;
     float red, green, blue, alpha;
     int shapeType;
+    
+    int nSides;
+    float nDist;
+    int i;
     
     size = [self bounds].size;
     
@@ -70,7 +74,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     rect.origin = SSRandomPointForSizeWithinRect( rect.size, [self bounds] );
     
     // Decide what kind of shape to draw
-    shapeType = SSRandomIntBetween( 0, 6 );
+    shapeType = SSRandomIntBetween( 0, 5 );
     switch (shapeType) {
         case 0:
             // rect
@@ -114,6 +118,46 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             [path closePath];
             break;
         case 5:
+            // three to ten sides, curved
+            nSides = SSRandomIntBetween(3, 10);
+            nDist = 100.0 - (5 * nSides);  // Limit on the final size of the object
+            
+            path = [NSBezierPath bezierPath];
+            [path moveToPoint:rect.origin];
+            
+            pointD = rect.origin;
+            
+            for (i = 0; i < nSides; i++) {
+                pointA = NSMakePoint(pointD.x + SSRandomFloatBetween(-(nDist), nDist),
+                                     pointD.y + SSRandomFloatBetween(-(nDist), nDist));
+                if (SSRandomIntBetween(1, 4) < 4) {
+                    pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-(nDist), nDist),
+                                         pointA.y + SSRandomFloatBetween(-(nDist), nDist));
+                    pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-(nDist), nDist),
+                                         pointB.y + SSRandomFloatBetween(-(nDist), nDist));
+                    
+                    [path curveToPoint:pointA
+                         controlPoint1:pointB
+                         controlPoint2:pointC];
+   
+                } else {
+                    [path lineToPoint:pointA];
+                }
+
+                pointD = pointA;
+            }
+            
+            pointB = NSMakePoint(pointD.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointD.y +SSRandomFloatBetween(-100.0, 100.0));
+            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
+                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
+
+            [path curveToPoint:rect.origin controlPoint1:pointB controlPoint2:pointC];
+            
+            [path closePath];
+            break;
+/*
+        case 5:
             // odd
             path = [NSBezierPath bezierPath];
             [path moveToPoint:rect.origin];
@@ -128,6 +172,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             [path closePath];
             break;
         case 6:
+            // all sides curved
             path = [NSBezierPath bezierPath];
             [path moveToPoint:rect.origin];
             
@@ -137,8 +182,8 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                  pointA.y +SSRandomFloatBetween(-100.0, 100.0));
             pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
                                  pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-
-
+            
+            
             [path curveToPoint:pointA
                  controlPoint1:pointB
                  controlPoint2:pointC];
@@ -149,7 +194,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                  pointA.y +SSRandomFloatBetween(-100.0, 100.0));
             pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
                                  pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-
+            
             [path curveToPoint:pointA
                  controlPoint1:pointB
                  controlPoint2:pointC];
@@ -158,14 +203,14 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                  pointA.y +SSRandomFloatBetween(-100.0, 100.0));
             pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
                                  pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-
+            
             [path curveToPoint:rect.origin
                  controlPoint1:pointB
                  controlPoint2:pointC];
             
             [path closePath];
             break;
-
+*/
         default:
             break;
     }
