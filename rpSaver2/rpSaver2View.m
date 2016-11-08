@@ -26,6 +26,10 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                     @"NO",  @"DrawFilledShapes",
                                     @"NO",  @"DrawOutlinedShapes",
                                     @"YES", @"DrawBoth",
+                                    @"YES", @"DrawRectangles",
+                                    @"YES", @"DrawOvals",
+                                    @"YES", @"DrawTriangles",
+                                    @"YES", @"DrawDoodles",
                                     nil]];
     }
     return self;
@@ -74,87 +78,100 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     rect.origin = SSRandomPointForSizeWithinRect( rect.size, [self bounds] );
     
     // Decide what kind of shape to draw
+    defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
     shapeType = SSRandomIntBetween( 0, 5 );
     switch (shapeType) {
         case 0:
             // rect
-            path = [NSBezierPath bezierPathWithRect:rect];
+            if ([defaults boolForKey:@"DrawRectangles"]) {
+                path = [NSBezierPath bezierPathWithRect:rect];
+            }
             break;
         case 1:
             // oval
-            path = [NSBezierPath bezierPathWithOvalInRect:rect];
+            if ([defaults boolForKey:@"DrawOvals"]) {
+                path = [NSBezierPath bezierPathWithOvalInRect:rect];
+            }
             break;
         case 2: {
             // arc
             float startAngle, endAngle, radius;
             NSPoint point;
             
-            startAngle = SSRandomFloatBetween( 0.0, 360.0 );
-            endAngle = SSRandomFloatBetween( startAngle, 360.0 + startAngle );
-            // Use the smallest value for the radius (either width or height)
-            radius = rect.size.width <= rect.size.height ? rect.size.width / 2 : rect.size.height / 2;
-            // Calculate our center point
-            point = NSMakePoint( rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2 );
-            // Construct the path
-            path = [NSBezierPath bezierPath];
-            [path appendBezierPathWithArcWithCenter: point radius: radius
+            if ([defaults boolForKey:@"DrawOvals"]) {
+                startAngle = SSRandomFloatBetween( 0.0, 360.0 );
+                endAngle = SSRandomFloatBetween( startAngle, 360.0 + startAngle );
+                // Use the smallest value for the radius (either width or height)
+                radius = rect.size.width <= rect.size.height ? rect.size.width / 2 : rect.size.height / 2;
+                // Calculate our center point
+                point = NSMakePoint( rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2 );
+                // Construct the path
+                path = [NSBezierPath bezierPath];
+                [path appendBezierPathWithArcWithCenter: point radius: radius
                                          startAngle: startAngle
                                          endAngle: endAngle
                                          clockwise: SSRandomIntBetween( 0, 1 )];
+            }
             break;
         }
         case 3:
-            // rounded corners rect
-            path = [NSBezierPath bezierPathWithRoundedRect:rect xRadius:SSRandomFloatBetween(4.0, 20.0) yRadius:SSRandomFloatBetween(4.0,20.0)];
+            if ([defaults boolForKey:@"DrawRectangles"]) {
+                // rounded corners rect
+                path = [NSBezierPath bezierPathWithRoundedRect:rect xRadius:SSRandomFloatBetween(4.0, 20.0) yRadius:SSRandomFloatBetween(4.0,20.0)];
+            }
             break;
         case 4:
             // triangle
-            path = [NSBezierPath bezierPath];
-            [path moveToPoint:rect.origin];
-            [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+            if ([defaults boolForKey:@"DrawTriangles"]) {
+                path = [NSBezierPath bezierPath];
+                [path moveToPoint:rect.origin];
+                [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
                                       rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
-            [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
+                [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
-            [path closePath];
+                [path closePath];
+            }
             break;
         case 5:
             // three to ten sides, curved
-            nSides = SSRandomIntBetween(3, 10);
-            nDist = 100.0 - (5 * nSides);  // Limit on the final size of the object
+            if ([defaults boolForKey:@"DrawDoodles"]) {
+                nSides = SSRandomIntBetween(3, 10);
+                nDist = 100.0 - (5 * nSides);  // Limit on the final size of the object
             
-            path = [NSBezierPath bezierPath];
-            [path moveToPoint:rect.origin];
+                path = [NSBezierPath bezierPath];
+                [path moveToPoint:rect.origin];
             
-            pointD = rect.origin;
+                pointD = rect.origin;
             
-            for (i = 0; i < nSides; i++) {
-                pointA = NSMakePoint(pointD.x + SSRandomFloatBetween(-(nDist), nDist),
+                for (i = 0; i < nSides; i++) {
+                    pointA = NSMakePoint(pointD.x + SSRandomFloatBetween(-(nDist), nDist),
                                      pointD.y + SSRandomFloatBetween(-(nDist), nDist));
-                if (SSRandomIntBetween(1, 4) < 4) {
-                    pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-(nDist), nDist),
+                    if (SSRandomIntBetween(1, 4) < 4) {
+                        pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-(nDist), nDist),
                                          pointA.y + SSRandomFloatBetween(-(nDist), nDist));
-                    pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-(nDist), nDist),
+                        pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-(nDist), nDist),
                                          pointB.y + SSRandomFloatBetween(-(nDist), nDist));
                     
-                    [path curveToPoint:pointA
-                         controlPoint1:pointB
-                         controlPoint2:pointC];
+                        [path curveToPoint:pointA
+                             controlPoint1:pointB
+                             controlPoint2:pointC];
    
-                } else {
-                    [path lineToPoint:pointA];
-                }
+                    } else {
+                        [path lineToPoint:pointA];
+                    }
 
-                pointD = pointA;
-            }
+                    pointD = pointA;
+                }
             
-            pointB = NSMakePoint(pointD.x + SSRandomFloatBetween(-100.0, 100.0),
+                pointB = NSMakePoint(pointD.x + SSRandomFloatBetween(-100.0, 100.0),
                                  pointD.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
+                pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
                                  pointB.y +SSRandomFloatBetween(-100.0, 100.0));
 
-            [path curveToPoint:rect.origin controlPoint1:pointB controlPoint2:pointC];
+                [path curveToPoint:rect.origin controlPoint1:pointB controlPoint2:pointC];
             
-            [path closePath];
+                [path closePath];
+            }
             break;
 /*
         case 5:
@@ -253,7 +270,13 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     }
     [drawFilledShapesOption setState:[defaults boolForKey:@"DrawFilledShapes"]];
     [drawOutlinedShapesOption setState:[defaults boolForKey:@"DrawOutlinedShapes"]];
-    [drawBothOption setState:[defaults boolForKey:@"DrawBoth"]]; return configSheet;
+    [drawBothOption setState:[defaults boolForKey:@"DrawBoth"]];
+    
+    [drawRectanglesOption setState:[defaults boolForKey:@"DrawRectangles"]];
+    [drawOvalsOption setState:[defaults boolForKey:@"DrawOvals"]];
+    [drawTrianglesOption setState:[defaults boolForKey:@"DrawTriangles"]];
+    [drawDoodlesOption setState:[defaults boolForKey:@"DrawDoodles"]];
+    return configSheet;
 }
 
 - (IBAction) okClick: (id)sender {
@@ -263,6 +286,11 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     [defaults setBool:[drawFilledShapesOption state] forKey:@"DrawFilledShapes"];
     [defaults setBool:[drawOutlinedShapesOption state] forKey:@"DrawOutlinedShapes"];
     [defaults setBool:[drawBothOption state] forKey:@"DrawBoth"];
+    [defaults setBool:[drawRectanglesOption state] forKey:@"DrawRectangles"];
+    [defaults setBool:[drawOvalsOption state] forKey:@"DrawOvals"];
+    [defaults setBool:[drawTrianglesOption state] forKey:@"DrawTriangles"];
+    [defaults setBool:[drawDoodlesOption state] forKey:@"DrawDoodles"];
+    
     // Save the settings to disk
     [defaults synchronize];
     // Close the sheet

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="rpSaver2View">
+            <connections>
+                <outlet property="configSheet" destination="13" id="33"/>
+                <outlet property="drawBothOption" destination="32" id="36"/>
+                <outlet property="drawDoodlesOption" destination="frw-xU-mIv" id="Ig6-Ig-Auk"/>
+                <outlet property="drawFilledShapesOption" destination="6" id="34"/>
+                <outlet property="drawOutlinedShapesOption" destination="27" id="35"/>
+                <outlet property="drawOvalsOption" destination="PJo-Wf-Mbn" id="2ct-dp-J6d"/>
+                <outlet property="drawRectanglesOption" destination="nn0-um-PlC" id="tem-2g-mOB"/>
+                <outlet property="drawTrianglesOption" destination="RXK-1Y-JAk" id="Mei-ke-tH5"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="13" userLabel="Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="220" y="283" width="373" height="199"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
+            <value key="minSize" type="size" width="213" height="107"/>
+            <view key="contentView" misplaced="YES" id="18">
+                <rect key="frame" x="0.0" y="0.0" width="373" height="199"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="8">
+                        <rect key="frame" x="275" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="42">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="okClick:" target="-2" id="39"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="9">
+                        <rect key="frame" x="191" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="43">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancelClick:" target="-2" id="40"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="16">
+                        <rect key="frame" x="18" y="162" width="110" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Drawing Options" id="44">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="25">
+                        <rect key="frame" x="127" y="162" width="226" height="5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </box>
+                    <matrix verticalHuggingPriority="750" misplaced="YES" allowsEmptySelection="NO" autosizesCells="NO" id="26">
+                        <rect key="frame" x="39" y="98" width="159" height="58"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <size key="cellSize" width="159" height="18"/>
+                        <size key="intercellSpacing" width="4" height="2"/>
+                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="45">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <cells>
+                            <column>
+                                <buttonCell type="radio" title="Draw filled shapes" imagePosition="left" alignment="left" state="on" inset="2" id="6">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <buttonCell type="radio" title="Draw outlined shapes" imagePosition="left" alignment="left" tag="1" inset="2" id="27">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <buttonCell type="radio" title="Draw both" imagePosition="left" alignment="left" inset="2" id="32">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </column>
+                        </cells>
+                    </matrix>
+                    <button misplaced="YES" id="nn0-um-PlC">
+                        <rect key="frame" x="210" y="140" width="90" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Rectangles" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eNy-VF-Ti2">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button misplaced="YES" id="PJo-Wf-Mbn">
+                        <rect key="frame" x="210" y="120" width="56" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Ovals" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fsI-ez-Da6">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="yfk-GK-Ue2" name="value" keyPath="values.drawOvalsOption" id="Nqa-SR-63E"/>
+                        </connections>
+                    </button>
+                    <button misplaced="YES" id="RXK-1Y-JAk">
+                        <rect key="frame" x="210" y="100" width="78" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Triangles" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="N6e-kh-gMd">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="yfk-GK-Ue2" name="value" keyPath="values.drawTrianglesOption" id="Bkc-Ig-0sw"/>
+                        </connections>
+                    </button>
+                    <button misplaced="YES" id="frw-xU-mIv">
+                        <rect key="frame" x="210" y="80" width="72" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Doodles" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="adz-FS-yHp">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="DrawDoodles.drawDoodlesOption" id="Mkr-tl-nKU"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <connections>
+                    <outlet property="nextKeyView" destination="RXK-1Y-JAk" id="scn-ci-3ur"/>
+                </connections>
+            </view>
+            <point key="canvasLocation" x="131.5" y="181.5"/>
+        </window>
+        <view id="28">
+            <rect key="frame" x="0.0" y="0.0" width="222" height="1"/>
+            <autoresizingMask key="autoresizingMask"/>
+        </view>
+        <userDefaultsController representsSharedInstance="YES" id="yfk-GK-Ue2"/>
+    </objects>
+</document>

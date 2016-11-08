@@ -12,6 +12,11 @@
     IBOutlet id configSheet;
     IBOutlet id drawFilledShapesOption;
     IBOutlet id drawOutlinedShapesOption;
-    IBOutlet id drawBothOption; }
+    IBOutlet id drawBothOption;
+    IBOutlet id drawRectanglesOption;
+    IBOutlet id drawOvalsOption;
+    IBOutlet id drawTrianglesOption;
+    IBOutlet id drawDoodlesOption;
+}
 
 @end
