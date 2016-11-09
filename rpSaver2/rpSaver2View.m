@@ -77,8 +77,9 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
      // Calculate random origin point
     rect.origin = SSRandomPointForSizeWithinRect( rect.size, [self bounds] );
     
-    // Decide what kind of shape to draw
     defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
+
+    // Decide what kind of shape to draw
     shapeType = SSRandomIntBetween( 0, 5 );
     switch (shapeType) {
         case 0:
@@ -95,17 +96,17 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             break;
         case 2: {
             // arc
-            float startAngle, endAngle, radius;
-            NSPoint point;
-            
             if ([defaults boolForKey:@"DrawOvals"]) {
+                float startAngle, endAngle, radius;
+                NSPoint point;
+            
                 startAngle = SSRandomFloatBetween( 0.0, 360.0 );
                 endAngle = SSRandomFloatBetween( startAngle, 360.0 + startAngle );
-                // Use the smallest value for the radius (either width or height)
+                    // Use the smallest value for the radius (either width or height)
                 radius = rect.size.width <= rect.size.height ? rect.size.width / 2 : rect.size.height / 2;
-                // Calculate our center point
+                    // Calculate our center point
                 point = NSMakePoint( rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2 );
-                // Construct the path
+                    // Construct the path
                 path = [NSBezierPath bezierPath];
                 [path appendBezierPathWithArcWithCenter: point radius: radius
                                          startAngle: startAngle
@@ -115,8 +116,8 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             break;
         }
         case 3:
+            // rounded corners rect
             if ([defaults boolForKey:@"DrawRectangles"]) {
-                // rounded corners rect
                 path = [NSBezierPath bezierPathWithRoundedRect:rect xRadius:SSRandomFloatBetween(4.0, 20.0) yRadius:SSRandomFloatBetween(4.0,20.0)];
             }
             break;
@@ -133,7 +134,8 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             }
             break;
         case 5:
-            // three to ten sides, curved
+            // Doodles
+                // three to ten sides, curved
             if ([defaults boolForKey:@"DrawDoodles"]) {
                 nSides = SSRandomIntBetween(3, 10);
                 nDist = 100.0 - (5 * nSides);  // Limit on the final size of the object
@@ -157,7 +159,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                              controlPoint2:pointC];
    
                     } else {
-                        [path lineToPoint:pointA];
+                    [path lineToPoint:pointA];
                     }
 
                     pointD = pointA;
@@ -173,61 +175,6 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                 [path closePath];
             }
             break;
-/*
-        case 5:
-            // odd
-            path = [NSBezierPath bezierPath];
-            [path moveToPoint:rect.origin];
-            [path curveToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))
-                 controlPoint1:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))
-                 controlPoint2:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
-            [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                          rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
-            [path closePath];
-            break;
-        case 6:
-            // all sides curved
-            path = [NSBezierPath bezierPath];
-            [path moveToPoint:rect.origin];
-            
-            pointA = NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 rect.origin.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-            
-            
-            [path curveToPoint:pointA
-                 controlPoint1:pointB
-                 controlPoint2:pointC];
-            
-            pointA = NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 rect.origin.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-            
-            [path curveToPoint:pointA
-                 controlPoint1:pointB
-                 controlPoint2:pointC];
-            
-            pointB = NSMakePoint(pointA.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointA.y +SSRandomFloatBetween(-100.0, 100.0));
-            pointC = NSMakePoint(pointB.x + SSRandomFloatBetween(-100.0, 100.0),
-                                 pointB.y +SSRandomFloatBetween(-100.0, 100.0));
-            
-            [path curveToPoint:rect.origin
-                 controlPoint1:pointB
-                 controlPoint2:pointC];
-            
-            [path closePath];
-            break;
-*/
         default:
             break;
     }
@@ -271,7 +218,6 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     [drawFilledShapesOption setState:[defaults boolForKey:@"DrawFilledShapes"]];
     [drawOutlinedShapesOption setState:[defaults boolForKey:@"DrawOutlinedShapes"]];
     [drawBothOption setState:[defaults boolForKey:@"DrawBoth"]];
-    
     [drawRectanglesOption setState:[defaults boolForKey:@"DrawRectangles"]];
     [drawOvalsOption setState:[defaults boolForKey:@"DrawOvals"]];
     [drawTrianglesOption setState:[defaults boolForKey:@"DrawTriangles"]];
@@ -290,7 +236,6 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     [defaults setBool:[drawOvalsOption state] forKey:@"DrawOvals"];
     [defaults setBool:[drawTrianglesOption state] forKey:@"DrawTriangles"];
     [defaults setBool:[drawDoodlesOption state] forKey:@"DrawDoodles"];
-    
     // Save the settings to disk
     [defaults synchronize];
     // Close the sheet
