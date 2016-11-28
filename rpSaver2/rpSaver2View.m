@@ -179,6 +179,10 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             break;
     }
     
+    NSAffineTransform *rotator = [NSAffineTransform transform];
+    [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 359.9)];
+    path = [rotator transformBezierPath: path];
+    
     // Calculate a random color
     red = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
     green = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
