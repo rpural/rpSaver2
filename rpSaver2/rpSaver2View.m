@@ -30,6 +30,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                     @"YES", @"DrawOvals",
                                     @"YES", @"DrawTriangles",
                                     @"YES", @"DrawDoodles",
+                                    @"YES", @"StrokeOutlines",
                                     nil]];
     }
     return self;
@@ -184,25 +185,45 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     path = [rotator transformBezierPath: path];
     
     // Calculate a random color
+    color = randomColor();
+    [color set];
+    // And finally draw it
+    defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
+    if ([defaults boolForKey:@"DrawBoth"]) {
+        if (SSRandomIntBetween( 0, 1 ) == 0) {
+            [path fill];
+            if ([defaults boolForKey:@"StrokeOutlines"]) {
+                color = randomColor();
+                [color set];
+                [path stroke];
+            }
+        } else
+            [path stroke]; }
+    else if ([defaults boolForKey:@"DrawFilledShapes"]) {
+        [path fill];
+        if ([defaults boolForKey:@"StrokeOutlines"]) {
+            color = randomColor();
+            [color set];
+            [path stroke];
+        }
+
+    } else
+        [path stroke];
+    
+    return;
+}
+
+NSColor* randomColor() {
+    NSColor *color;
+    float red, green, blue, alpha;
+
     red = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
     green = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
     blue = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
     alpha = SSRandomFloatBetween( 0.0, 255.0 ) / 255.0;
     color = [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:alpha];
-    [color set];
-    // And finally draw it
-    defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
-    if ([defaults boolForKey:@"DrawBoth"]) {
-        if (SSRandomIntBetween( 0, 1 ) == 0)
-            [path fill];
-        else
-            [path stroke]; }
-    else if ([defaults boolForKey:@"DrawFilledShapes"])
-        [path fill];
-    else
-        [path stroke];
-    
-    return;
+    return color;
+
 }
 
 - (BOOL)hasConfigureSheet
@@ -226,6 +247,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     [drawOvalsOption setState:[defaults boolForKey:@"DrawOvals"]];
     [drawTrianglesOption setState:[defaults boolForKey:@"DrawTriangles"]];
     [drawDoodlesOption setState:[defaults boolForKey:@"DrawDoodles"]];
+    [strokeOutlinesOption setState:[defaults boolForKey:@"StrokeOutlines"]];
     return configSheet;
 }
 
@@ -240,6 +262,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     [defaults setBool:[drawOvalsOption state] forKey:@"DrawOvals"];
     [defaults setBool:[drawTrianglesOption state] forKey:@"DrawTriangles"];
     [defaults setBool:[drawDoodlesOption state] forKey:@"DrawDoodles"];
+    [defaults setBool:[strokeOutlinesOption state] forKey:@"StrokeOutlines"];
     // Save the settings to disk
     [defaults synchronize];
     // Close the sheet

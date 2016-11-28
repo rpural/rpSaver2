@@ -17,6 +17,7 @@
     IBOutlet id drawOvalsOption;
     IBOutlet id drawTrianglesOption;
     IBOutlet id drawDoodlesOption;
+    IBOutlet id strokeOutlinesOption;
 }
 
 @end
