@@ -80,6 +80,8 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     
     defaults = [ScreenSaverDefaults defaultsForModuleWithName:MyModuleName];
 
+    NSAffineTransform *rotator = [NSAffineTransform transform];
+
     // Decide what kind of shape to draw
     shapeType = SSRandomIntBetween( 0, 5 );
     switch (shapeType) {
@@ -87,12 +89,14 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             // rect
             if ([defaults boolForKey:@"DrawRectangles"]) {
                 path = [NSBezierPath bezierPathWithRect:rect];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 179.9)];
             }
             break;
         case 1:
             // oval
             if ([defaults boolForKey:@"DrawOvals"]) {
                 path = [NSBezierPath bezierPathWithOvalInRect:rect];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 179.9)];
             }
             break;
         case 2: {
@@ -113,6 +117,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                                          startAngle: startAngle
                                          endAngle: endAngle
                                          clockwise: SSRandomIntBetween( 0, 1 )];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 359.9)];
             }
             break;
         }
@@ -120,6 +125,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
             // rounded corners rect
             if ([defaults boolForKey:@"DrawRectangles"]) {
                 path = [NSBezierPath bezierPathWithRoundedRect:rect xRadius:SSRandomFloatBetween(4.0, 20.0) yRadius:SSRandomFloatBetween(4.0,20.0)];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 179.9)];
             }
             break;
         case 4:
@@ -132,6 +138,7 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                 [path lineToPoint:NSMakePoint(rect.origin.x + SSRandomFloatBetween(-100.0, 100.0),
                                           rect.origin.y + SSRandomFloatBetween(-100.0, 100.0))];
                 [path closePath];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 359.9)];
             }
             break;
         case 5:
@@ -174,14 +181,13 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
                 [path curveToPoint:rect.origin controlPoint1:pointB controlPoint2:pointC];
             
                 [path closePath];
+                [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 359.9)];
             }
             break;
         default:
             break;
     }
     
-    NSAffineTransform *rotator = [NSAffineTransform transform];
-    [rotator rotateByDegrees: SSRandomFloatBetween(0.0, 359.9)];
     path = [rotator transformBezierPath: path];
     
     // Calculate a random color
