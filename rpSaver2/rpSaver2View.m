@@ -60,7 +60,6 @@ static NSString * const MyModuleName = @"net.rpural.rpSaver2";
     NSPoint pointA, pointB, pointC, pointD;
     NSSize size;
     NSColor *color;
-    float red, green, blue, alpha;
     int shapeType;
     
     int nSides;
