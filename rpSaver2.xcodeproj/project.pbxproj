@@ -10,6 +10,7 @@
 		783E36A41DBFABC300FC8D4D /* rpSaver2View.h in Headers */ = {isa = PBXBuildFile; fileRef = 783E36A31DBFABC300FC8D4D /* rpSaver2View.h */; };
 		783E36A61DBFABC300FC8D4D /* rpSaver2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 783E36A51DBFABC300FC8D4D /* rpSaver2View.m */; };
 		783E36AE1DBFAF3400FC8D4D /* ConfigureSheet.nib in Resources */ = {isa = PBXBuildFile; fileRef = 783E36AD1DBFAF3400FC8D4D /* ConfigureSheet.nib */; };
+		C4EB801E1DEE7F03000BF68E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C4EB801D1DEE7F03000BF68E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		783E36A51DBFABC300FC8D4D /* rpSaver2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rpSaver2View.m; sourceTree = "<group>"; };
 		783E36A71DBFABC300FC8D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783E36AD1DBFAF3400FC8D4D /* ConfigureSheet.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = ConfigureSheet.nib; sourceTree = "<group>"; };
+		C4EB801D1DEE7F03000BF68E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +36,7 @@
 		783E36961DBFABC300FC8D4D = {
 			isa = PBXGroup;
 			children = (
+				C4EB801D1DEE7F03000BF68E /* README.md */,
 				783E36A21DBFABC300FC8D4D /* rpSaver2 */,
 				783E36A11DBFABC300FC8D4D /* Products */,
 			);
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4EB801E1DEE7F03000BF68E /* README.md in Sources */,
 				783E36A61DBFABC300FC8D4D /* rpSaver2View.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

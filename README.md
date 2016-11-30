@@ -1,3 +1,3 @@
 rpSaver2
 
-MacOS screen saver
+A MacOS screen saver
